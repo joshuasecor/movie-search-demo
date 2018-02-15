@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="http://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="search-component/search.js"></script>
+<link rel="stylesheet" type="text/css" href="search-component/search.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <div class="search-wrapper">
+        <input v-model="search" class="search-bar" placeholder="Search movies...">
+    </div>
+
+    <div class="wrapper">
+        <div class="list-movie-container">
+            <div v-for="movie in movies" v-bind:class="{ active: movie.isActive }" class="list-movie">
+                <img :src="movie.poster" class="list-movie-poster" />
+                <p class="list-movie-title">
+                    {{ movie.title }} <span class="list-movie-rating">({{ movie.rating }})</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
